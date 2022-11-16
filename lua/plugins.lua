@@ -74,6 +74,7 @@ local packer = require('packer').startup(function(use)
       require("nvim-autopairs").setup {}
     end
   })
+  use({ "mrjones2014/smart-splits.nvim" })
   use({
     "chentoast/marks.nvim",
     config=function()
@@ -136,5 +137,6 @@ end)
 require("plugin-config/material")
 require("plugin-config/telescope")
 require("plugin-config/accelerated-jk")
+require("plugin-config/smart-splits")
 
 return packer
