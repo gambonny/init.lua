@@ -21,7 +21,7 @@ require('material').setup({
         -- "nvim-tree",
         "nvim-web-devicons",
         -- "sneak",
-        -- "telescope",
+        "telescope",
         -- "trouble",
         -- "which-key",
     },

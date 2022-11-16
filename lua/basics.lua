@@ -1,5 +1,6 @@
 vim.g.mapleader = ';'
-
+vim.o.ls = 0
+vim.o.ch = 0
 vim.o.swapfile = false
 vim.bo.swapfile = false
 vim.o.backup = false

@@ -32,6 +32,7 @@ packer.init({
 local packer_bootstrap = ensure_packer()
 
 require("plugin-config/material")
+require("plugin-config/telescope")
 
 return require('packer').startup(function(use)
   use ({ "wbthomason/packer.nvim" })
@@ -45,6 +46,13 @@ return require('packer').startup(function(use)
       }
     end
   })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = 'make' })
+  use({
+    "nvim-telescope/telescope.nvim",
+    commit="7a4ffef931769c3fe7544214ed7ffde5852653f6",
+    requires = { { "nvim-lua/plenary.nvim" } }
+  })
+
 
   use({ "tpope/vim-repeat", commit="24afe922e6a05891756ecf331f39a1f6743d3d5a" })
   use({ "psliwka/vim-smoothie", commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
