@@ -5,6 +5,9 @@ vim.bo.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.autoread = true
+vim.o.termguicolors = true
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
 
 vim.o.scrolloff = 8
 
@@ -38,9 +41,6 @@ vim.o.updatetime = 300
 
 vim.o.completeopt='menuone,preview,noinsert'
 vim.o.hidden=true
-
-vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
 
 vim.cmd [[
   set encoding=utf-8

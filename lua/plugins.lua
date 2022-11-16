@@ -36,6 +36,12 @@ return require('packer').startup(function(use)
   use({ "nvim-lua/plenary.nvim", commit="4b7e52044bbb84242158d977a50c4cbcd85070c7" })
 
   use({ "kyazdani42/nvim-web-devicons" })
+  use({
+    "norcalli/nvim-colorizer.lua", 
+    config=function()
+      require("colorizer").setup()
+    end
+  })
   use({ 
     "b0o/incline.nvim",
     commit="44d4e6f4dcf2f98cf7b62a14e3c10749fc5c6e35",
