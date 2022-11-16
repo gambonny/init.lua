@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } }
   })
 
-
+  use({ "farmergreg/vim-lastplace" })
   use({ "tpope/vim-repeat", commit="24afe922e6a05891756ecf331f39a1f6743d3d5a" })
   use({ "psliwka/vim-smoothie", commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
   use({
