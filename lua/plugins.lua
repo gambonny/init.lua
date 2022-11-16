@@ -44,6 +44,9 @@ local packer = require('packer').startup(function(use)
     config=function()
       require("nvim-treesitter.configs").setup {
         markid = { enable = true },
+        matchup = {
+          enable = true,
+        },
         ensure_installed = { "typescript", "lua", "tsx" },
       }
     end
@@ -51,6 +54,10 @@ local packer = require('packer').startup(function(use)
   use({
     "David-Kunz/markid", 
     commit="248a785900c29ee52ddf42aa096e9e3478739cb1"
+  })
+  use({
+    "andymass/vim-matchup",
+    commit="55e3330436784fb8ccc35a5cfeb13e48bab9dcd2"
   })
 
   -- Telescope
