@@ -16,12 +16,12 @@ vim.cmd([[
   augroup end
 ]])
 
-local status_ok, packer = pcall(require, "packer")
+local status_ok, _packer = pcall(require, "packer")
 if not status_ok then
   return
 end
 
-packer.init({
+_packer.init({
   display = {
     open_fn = function()
       return require("packer.util").float({ border = "rounded" })
@@ -65,6 +65,18 @@ local packer = require('packer').startup(function(use)
   -- Git
   use({ "almo7aya/openingh.nvim" })
 
+  -- LSP
+  use({ "neovim/nvim-lspconfig" })
+  use({ "hrsh7th/nvim-cmp" })
+  use({ "hrsh7th/cmp-nvim-lsp" })
+  use({ "hrsh7th/cmp-buffer" })
+  use({ "hrsh7th/cmp-path" })
+
+  use({ "saadparwaiz1/cmp_luasnip" })
+  use({ "windwp/nvim-ts-autotag" })
+  use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+
+  use({ "L3MON4D3/LuaSnip" })
   use ({ "ThePrimeagen/harpoon" })
   use({
     "ggandor/leap.nvim",
@@ -81,6 +93,7 @@ local packer = require('packer').startup(function(use)
     end
   })
 
+  use({ "terrortylor/nvim-comment" })
   use({ "farmergreg/vim-lastplace" })
   use({
     "kylechui/nvim-surround",
@@ -120,14 +133,14 @@ local packer = require('packer').startup(function(use)
   })
 
   use({ "kyazdani42/nvim-web-devicons" })
-  use({ "marko-cerovac/material.nvim" }) 
+  use({ "marko-cerovac/material.nvim" })
   use({
-    "norcalli/nvim-colorizer.lua", 
+    "norcalli/nvim-colorizer.lua",
     config=function()
       require("colorizer").setup()
     end
   })
-  use({ 
+  use({
     "b0o/incline.nvim",
     config=function()
       require("incline").setup()
@@ -149,7 +162,7 @@ local packer = require('packer').startup(function(use)
       require("hlargs").setup()
     end
   })
-  
+
   if packer_bootstrap then
     require("packer").sync()
   end
@@ -160,5 +173,7 @@ require("plugin-config/telescope")
 require("plugin-config/accelerated-jk")
 require("plugin-config/smart-splits")
 require("plugin-config/harpoon")
+require("plugin-config/lspconfig")
+require("plugin-config/luasnip")
 
 return packer
