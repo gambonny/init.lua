@@ -61,6 +61,9 @@ local packer = require('packer').startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } }
   })
 
+  -- Git
+  use({ "almo7aya/openingh.nvim" })
+
   use({ "farmergreg/vim-lastplace" })
   use({
     "kylechui/nvim-surround",
