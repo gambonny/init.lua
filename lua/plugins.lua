@@ -33,11 +33,9 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use ({ "wbthomason/packer.nvim" })
-
   use({ "nvim-lua/plenary.nvim", commit="4b7e52044bbb84242158d977a50c4cbcd85070c7" })
-  use({ "tpope/vim-repeat", commit="24afe922e6a05891756ecf331f39a1f6743d3d5a" })
-  use({ "psliwka/vim-smoothie", commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
 
+  use({ "kyazdani42/nvim-web-devicons" })
   use({ 
     "b0o/incline.nvim",
     commit="44d4e6f4dcf2f98cf7b62a14e3c10749fc5c6e35",
@@ -45,9 +43,20 @@ return require('packer').startup(function(use)
       require("incline").setup()
     end
   })
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    commit="db7cbcb40cc00fc5d6074d7569fb37197705e7f6",
+    config=function()
+      require("indent_blankline").setup {
+      show_current_context = true,
+      show_current_context_start = true,
+    }
+    end
+  })
 
-  use({ "kyazdani42/nvim-web-devicons" })
-
+  use({ "tpope/vim-repeat", commit="24afe922e6a05891756ecf331f39a1f6743d3d5a" })
+  use({ "psliwka/vim-smoothie", commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
+  
   if packer_bootstrap then
     require('packer').sync()
   end

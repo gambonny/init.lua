@@ -39,6 +39,9 @@ vim.o.updatetime = 300
 vim.o.completeopt='menuone,preview,noinsert'
 vim.o.hidden=true
 
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+
 vim.cmd [[
   set encoding=utf-8
   set fileencoding=utf-8
