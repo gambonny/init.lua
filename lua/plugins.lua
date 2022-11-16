@@ -31,6 +31,8 @@ packer.init({
 
 local packer_bootstrap = ensure_packer()
 
+require("plugin-config/material")
+
 return require('packer').startup(function(use)
   use ({ "wbthomason/packer.nvim" })
   use({ "nvim-lua/plenary.nvim", commit="4b7e52044bbb84242158d977a50c4cbcd85070c7" })
@@ -45,6 +47,8 @@ return require('packer').startup(function(use)
   })
 
   use({ "kyazdani42/nvim-web-devicons" })
+  use({ "marko-cerovac/material.nvim" })
+  
   use({
     "norcalli/nvim-colorizer.lua", 
     config=function()
@@ -76,3 +80,4 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
