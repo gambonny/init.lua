@@ -1,5 +1,18 @@
+require "fidget".setup {}
+
 local lspconfig = require("lspconfig")
-local lsp_defaults = lspconfig.util.default_config
+
+local lsp_defaults = {
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = require('cmp_nvim_lsp').default_capabilities(
+    vim.lsp.protocol.make_client_capabilities()
+  ),
+  on_attach = function(client)
+    require 'illuminate'.on_attach(client)
+  end
+}
 
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   "force",
@@ -7,6 +20,7 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 
+lspconfig.eslint.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.sumneko_lua.setup({
   settings = {
@@ -22,7 +36,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      local opts = {buffer = true}
+      local opts = { buffer = true }
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
@@ -41,7 +55,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Jumps to the definition of the type symbol
     bufmap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
 
-    -- Lists all the references 
+    -- Lists all the references
     bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
     -- Displays a function"s signature information
@@ -62,13 +76,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end
 })
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
-
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-local select_opts = {behavior = cmp.SelectBehavior.Select}
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
   snippet = {
@@ -77,16 +90,16 @@ cmp.setup({
     end
   },
   sources = {
-    {name = 'path'},
-    {name = 'nvim_lsp', keyword_length = 3},
-    {name = 'buffer', keyword_length = 3},
-    {name = 'luasnip', keyword_length = 2},
+    { name = 'path' },
+    { name = 'nvim_lsp', keyword_length = 3 },
+    { name = 'buffer', keyword_length = 3 },
+    { name = 'luasnip', keyword_length = 2 },
   },
   window = {
     documentation = cmp.config.window.bordered()
   },
   formatting = {
-    fields = {'menu', 'abbr', 'kind'},
+    fields = { 'menu', 'abbr', 'kind' },
     format = function(entry, item)
       local menu_icon = {
         nvim_lsp = 'λ',
@@ -110,7 +123,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
     ['<C-d>'] = cmp.mapping(function(fallback)
       if luasnip.jumpable(1) then
@@ -118,7 +131,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
 
     ['<C-b>'] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
@@ -126,7 +139,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
 
     ['<Tab>'] = cmp.mapping(function(fallback)
       local col = vim.fn.col('.') - 1
@@ -138,7 +151,7 @@ cmp.setup({
       else
         cmp.complete()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
 
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -146,6 +159,6 @@ cmp.setup({
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
   },
 })

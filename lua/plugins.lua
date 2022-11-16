@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -42,13 +42,13 @@ local packer = require('packer').startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    config=function()
+    config = function()
       require("nvim-treesitter.configs").setup {
         markid = { enable = true },
         matchup = {
           enable = true,
         },
-        ensure_installed = { "typescript", "lua", "tsx" },
+        ensure_installed = { "typescript", "lua", "tsx" }
       }
     end
   })
@@ -71,22 +71,24 @@ local packer = require('packer').startup(function(use)
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "hrsh7th/cmp-buffer" })
   use({ "hrsh7th/cmp-path" })
+  use({ "RRethy/vim-illuminate" })
+  use({ "j-hui/fidget.nvim" })
 
   use({ "saadparwaiz1/cmp_luasnip" })
   use({ "windwp/nvim-ts-autotag" })
   use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
 
   use({ "L3MON4D3/LuaSnip" })
-  use ({ "ThePrimeagen/harpoon" })
+  use({ "ThePrimeagen/harpoon" })
   use({
     "ggandor/leap.nvim",
-    config=function()
+    config = function()
       require("leap").set_default_keymaps()
     end
   })
   use({
     "ggandor/leap-spooky.nvim",
-    config=function()
+    config = function()
       require("leap-spooky").setup({
         paste_on_remote_yank = true,
       })
@@ -97,11 +99,11 @@ local packer = require('packer').startup(function(use)
   use({ "farmergreg/vim-lastplace" })
   use({
     "kylechui/nvim-surround",
-    config=function()
+    config = function()
       require("nvim-surround").setup()
     end
   })
-  use ({
+  use({
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup {}
@@ -111,7 +113,7 @@ local packer = require('packer').startup(function(use)
   use("christoomey/vim-system-copy")
   use({
     "chentoast/marks.nvim",
-    config=function()
+    config = function()
       require("marks").setup({
         next = "m]",
         preview = "m[",
@@ -123,7 +125,7 @@ local packer = require('packer').startup(function(use)
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config=function()
+    config = function()
       require('lualine').setup {
         options = {
           theme = 'auto'
@@ -136,29 +138,29 @@ local packer = require('packer').startup(function(use)
   use({ "marko-cerovac/material.nvim" })
   use({
     "norcalli/nvim-colorizer.lua",
-    config=function()
+    config = function()
       require("colorizer").setup()
     end
   })
   use({
     "b0o/incline.nvim",
-    config=function()
+    config = function()
       require("incline").setup()
     end
   })
   use({
     "lukas-reineke/indent-blankline.nvim",
-    config=function()
+    config = function()
       require("indent_blankline").setup {
-      show_current_context = true,
-      show_current_context_start = true,
-    }
+        show_current_context = true,
+        show_current_context_start = true,
+      }
     end
   })
-  use ({
+  use({
     "m-demare/hlargs.nvim",
     requires = { "nvim-treesitter/nvim-treesitter" },
-    config=function()
+    config = function()
       require("hlargs").setup()
     end
   })
@@ -174,6 +176,6 @@ require("plugin-config/accelerated-jk")
 require("plugin-config/smart-splits")
 require("plugin-config/harpoon")
 require("plugin-config/lspconfig")
-require("plugin-config/luasnip")
+require("plugin-config/snippets")
 
 return packer
