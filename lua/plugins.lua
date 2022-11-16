@@ -36,7 +36,7 @@ require("plugin-config/material")
 return require('packer').startup(function(use)
   use ({ "wbthomason/packer.nvim" })
   use({ "nvim-lua/plenary.nvim", commit="4b7e52044bbb84242158d977a50c4cbcd85070c7" })
-   use({
+  use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config=function()
@@ -46,9 +46,23 @@ return require('packer').startup(function(use)
     end
   })
 
+  use({ "tpope/vim-repeat", commit="24afe922e6a05891756ecf331f39a1f6743d3d5a" })
+  use({ "psliwka/vim-smoothie", commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
+  use({
+    "nvim-lualine/lualine.nvim",
+    commit="3325d5d43a7a2bc9baeef2b7e58e1d915278beaf",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    config=function()
+      require('lualine').setup {
+        options = {
+          theme = 'auto'
+        }
+      }
+    end
+  })
+
   use({ "kyazdani42/nvim-web-devicons" })
-  use({ "marko-cerovac/material.nvim" })
-  
+  use({ "marko-cerovac/material.nvim" }) 
   use({
     "norcalli/nvim-colorizer.lua", 
     config=function()
@@ -72,9 +86,6 @@ return require('packer').startup(function(use)
     }
     end
   })
-
-  use({ "tpope/vim-repeat", commit="24afe922e6a05891756ecf331f39a1f6743d3d5a" })
-  use({ "psliwka/vim-smoothie", commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
   
   if packer_bootstrap then
     require('packer').sync()

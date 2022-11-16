@@ -1,4 +1,5 @@
 require('material').setup({
+  lualine_style = 'stealth',
   contrast = {
       floating_windows = true,
       cursor_line = true,
