@@ -102,6 +102,14 @@ local packer = require('packer').startup(function(use)
     }
     end
   })
+  use ({
+    "m-demare/hlargs.nvim",
+    commit="e75b0501f47564099a6c3b4502232e650fdd8e82",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config=function()
+      require('hlargs').setup()
+    end
+  })
   
   if packer_bootstrap then
     require('packer').sync()
