@@ -33,6 +33,7 @@ local packer_bootstrap = ensure_packer()
 
 local packer = require('packer').startup(function(use)
   use({ "wbthomason/packer.nvim" })
+  use({ "lewis6991/impatient.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "rainbowhxch/accelerated-jk.nvim" })
   use({ "jdhao/better-escape.vim" })
