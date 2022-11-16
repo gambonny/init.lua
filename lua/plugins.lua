@@ -64,6 +64,22 @@ local packer = require('packer').startup(function(use)
   -- Git
   use({ "almo7aya/openingh.nvim" })
 
+
+  use({
+    "ggandor/leap.nvim",
+    config=function()
+      require("leap").set_default_keymaps()
+    end
+  })
+  use({
+    "ggandor/leap-spooky.nvim",
+    config=function()
+      require('leap-spooky').setup({
+        paste_on_remote_yank = true,
+      })
+    end
+  })
+
   use({ "farmergreg/vim-lastplace" })
   use({
     "kylechui/nvim-surround",
