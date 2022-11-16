@@ -31,13 +31,13 @@ packer.init({
 
 local packer_bootstrap = ensure_packer()
 
-require("plugin-config/material")
-require("plugin-config/telescope")
-
-return require('packer').startup(function(use)
-  use ({ "wbthomason/packer.nvim" })
+local packer = require('packer').startup(function(use)
+  use({ "wbthomason/packer.nvim" })
   use({ "nvim-lua/plenary.nvim", commit="4b7e52044bbb84242158d977a50c4cbcd85070c7" })
+  use({ "rainbowhxch/accelerated-jk.nvim" })
+  use({ "jdhao/better-escape.vim" })
 
+  -- Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -48,8 +48,12 @@ return require('packer').startup(function(use)
       }
     end
   })
-  use({ "David-Kunz/markid" })
+  use({
+    "David-Kunz/markid", 
+    commit="248a785900c29ee52ddf42aa096e9e3478739cb1"
+  })
 
+  -- Telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = 'make' })
   use({
     "nvim-telescope/telescope.nvim",
@@ -104,3 +108,8 @@ return require('packer').startup(function(use)
   end
 end)
 
+require("plugin-config/material")
+require("plugin-config/telescope")
+require("plugin-config/accelerated-jk")
+
+return packer

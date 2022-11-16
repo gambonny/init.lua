@@ -57,4 +57,5 @@ vim.cmd [[
   set inccommand=split
   set laststatus=3
   let g:neovide_input_macos_alt_is_meta=v:true
+  let g:better_escape_shortcut = 'jj'
 ]]
