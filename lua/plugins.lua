@@ -64,7 +64,7 @@ local packer = require('packer').startup(function(use)
   -- Git
   use({ "almo7aya/openingh.nvim" })
 
-
+  use ({ "ThePrimeagen/harpoon" })
   use({
     "ggandor/leap.nvim",
     config=function()
@@ -74,7 +74,7 @@ local packer = require('packer').startup(function(use)
   use({
     "ggandor/leap-spooky.nvim",
     config=function()
-      require('leap-spooky').setup({
+      require("leap-spooky").setup({
         paste_on_remote_yank = true,
       })
     end
@@ -158,5 +158,6 @@ require("plugin-config/material")
 require("plugin-config/telescope")
 require("plugin-config/accelerated-jk")
 require("plugin-config/smart-splits")
+require("plugin-config/harpoon")
 
 return packer
