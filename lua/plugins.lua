@@ -62,7 +62,6 @@ local packer = require('packer').startup(function(use)
   })
 
   use({ "farmergreg/vim-lastplace" })
-  use({ "tpope/vim-unimpaired" })
   use({
     "kylechui/nvim-surround",
     config=function()
@@ -72,9 +71,16 @@ local packer = require('packer').startup(function(use)
   use ({
     "windwp/nvim-autopairs",
     config = function()
-      require("nvim-autopairs").setup {
-        enable_check_bracket_line = false,
-      }
+      require("nvim-autopairs").setup {}
+    end
+  })
+  use({
+    "chentoast/marks.nvim",
+    config=function()
+      require("marks").setup({
+        next = "m]",
+        preview = "m[",
+      })
     end
   })
   use({ "tpope/vim-repeat" })
