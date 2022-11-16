@@ -34,6 +34,15 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use ({ "wbthomason/packer.nvim" })
   use({ "nvim-lua/plenary.nvim", commit="4b7e52044bbb84242158d977a50c4cbcd85070c7" })
+   use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config=function()
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = { "typescript", "lua", "tsx" },
+      }
+    end
+  })
 
   use({ "kyazdani42/nvim-web-devicons" })
   use({
