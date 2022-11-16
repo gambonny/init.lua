@@ -75,6 +75,7 @@ local packer = require('packer').startup(function(use)
     end
   })
   use({ "mrjones2014/smart-splits.nvim" })
+  use("christoomey/vim-system-copy")
   use({
     "chentoast/marks.nvim",
     config=function()
@@ -125,12 +126,12 @@ local packer = require('packer').startup(function(use)
     "m-demare/hlargs.nvim",
     requires = { "nvim-treesitter/nvim-treesitter" },
     config=function()
-      require('hlargs').setup()
+      require("hlargs").setup()
     end
   })
   
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)
 
