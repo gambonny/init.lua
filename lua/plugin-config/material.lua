@@ -10,10 +10,10 @@ require('material').setup({
         -- Available plugins:
         -- "dap",
         -- "dashboard",
-        -- "gitsigns",
+        "gitsigns",
         -- "hop",
         "indent-blankline",
-        -- "lspsaga",
+        "lspsaga",
         -- "mini",
         -- "neogit",
         -- "nvim-cmp",

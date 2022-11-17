@@ -65,6 +65,7 @@ local packer = require('packer').startup(function(use)
 
   -- Git
   use({ "almo7aya/openingh.nvim" })
+  use({ 'lewis6991/gitsigns.nvim' })
 
   -- LSP
   use({ "neovim/nvim-lspconfig" })
@@ -136,7 +137,11 @@ local packer = require('packer').startup(function(use)
   use({
     "petertriho/nvim-scrollbar",
     config = function()
-      require("scrollbar").setup()
+      require("scrollbar").setup({
+        handlers = {
+          gitsigns = true,
+        },
+      })
     end
   })
   use({
@@ -206,5 +211,6 @@ require("plugin-config/harpoon")
 require("plugin-config/lspconfig")
 require("plugin-config/snippets")
 require("plugin-config/neotest")
+require("plugin-config/gitsigns")
 
 return packer
