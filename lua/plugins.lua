@@ -73,12 +73,15 @@ local packer = require('packer').startup(function(use)
   use({ "hrsh7th/cmp-path" })
   use({ "RRethy/vim-illuminate" })
   use({ "j-hui/fidget.nvim" })
-  use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
-
   use({ "saadparwaiz1/cmp_luasnip" })
-  use({ "windwp/nvim-ts-autotag" })
   use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
   use({ "glepnir/lspsaga.nvim", branch = "main" })
+  use({
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  })
 
   use({ "L3MON4D3/LuaSnip" })
   use({ "ThePrimeagen/harpoon" })
