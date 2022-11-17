@@ -134,6 +134,12 @@ local packer = require('packer').startup(function(use)
   use({ "mrjones2014/smart-splits.nvim" })
   use("christoomey/vim-system-copy")
   use({
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("scrollbar").setup()
+    end
+  })
+  use({
     "chentoast/marks.nvim",
     config = function()
       require("marks").setup({
