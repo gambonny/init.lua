@@ -34,6 +34,7 @@ local packer_bootstrap = ensure_packer()
 local packer = require('packer').startup(function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "lewis6991/impatient.nvim" })
+  use({ "nathom/filetype.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "rainbowhxch/accelerated-jk.nvim" })
   use({ "jdhao/better-escape.vim" })
@@ -103,7 +104,7 @@ local packer = require('packer').startup(function(use)
   use({ "farmergreg/vim-lastplace" })
   use({
     "terrortylor/nvim-comment",
-    config=function ()
+    config = function()
       require('nvim_comment').setup()
     end
   })
