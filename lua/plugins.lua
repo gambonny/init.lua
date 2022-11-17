@@ -100,8 +100,13 @@ local packer = require('packer').startup(function(use)
     end
   })
 
-  use({ "terrortylor/nvim-comment" })
   use({ "farmergreg/vim-lastplace" })
+  use({
+    "terrortylor/nvim-comment",
+    config=function ()
+      require('nvim_comment').setup()
+    end
+  })
   use({
     "kylechui/nvim-surround",
     config = function()
