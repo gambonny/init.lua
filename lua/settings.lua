@@ -40,8 +40,8 @@ vim.wo.wrap = false
 vim.o.history = 10000
 vim.o.updatetime = 300
 
-vim.o.completeopt='menuone,preview,noinsert'
-vim.o.hidden=true
+vim.o.completeopt = 'menuone,preview,noinsert'
+vim.o.hidden = true
 
 vim.g.material_style = "palenight"
 vim.cmd [[

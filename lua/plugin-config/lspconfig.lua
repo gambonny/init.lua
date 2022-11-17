@@ -1,4 +1,5 @@
 require "fidget".setup {}
+require("lsp-format").setup()
 
 local lspconfig = require("lspconfig")
 
@@ -20,9 +21,12 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 
-lspconfig.eslint.setup {}
-lspconfig.tsserver.setup {}
+lspconfig.tsserver.setup({
+  on_attach = require("lsp-format").on_attach,
+})
+
 lspconfig.sumneko_lua.setup({
+  on_attach = require("lsp-format").on_attach,
   settings = {
     Lua = {
       diagnostics = {

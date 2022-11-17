@@ -65,7 +65,7 @@ local packer = require('packer').startup(function(use)
 
   -- Git
   use({ "almo7aya/openingh.nvim" })
-  use({ 'lewis6991/gitsigns.nvim' })
+  use({ "lewis6991/gitsigns.nvim" })
 
   -- LSP
   use({ "neovim/nvim-lspconfig" })
@@ -78,6 +78,7 @@ local packer = require('packer').startup(function(use)
   use({ "saadparwaiz1/cmp_luasnip" })
   use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
   use({ "glepnir/lspsaga.nvim", branch = "main" })
+  use({ "lukas-reineke/lsp-format.nvim" })
   use({
     "windwp/nvim-ts-autotag",
     config = function()
