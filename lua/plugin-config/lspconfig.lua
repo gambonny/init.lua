@@ -46,6 +46,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     bufmap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
     bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
     bufmap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
+    bufmap("n", "<Leader>gv", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
+    bufmap("n", "<Leader>gg", "<cmd>belowright split | lua vim.lsp.buf.definition()<CR>")
   end
 })
 
@@ -142,7 +144,7 @@ local saga = require('lspsaga')
 saga.init_lsp_saga()
 
 keymap("n", "<Leader>gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-keymap({"n","v"}, "<Leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+keymap({ "n", "v" }, "<Leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 keymap("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<Leader>gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
@@ -157,7 +159,7 @@ keymap("n", "]E", function()
   require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
-keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
 keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })

@@ -84,6 +84,17 @@ local packer = require('packer').startup(function(use)
     end
   })
 
+  -- Tests
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      'haydenmeade/neotest-jest',
+    }
+  }
+
   use({ "L3MON4D3/LuaSnip" })
   use({ "ThePrimeagen/harpoon" })
   use({
@@ -188,5 +199,6 @@ require("plugin-config/smart-splits")
 require("plugin-config/harpoon")
 require("plugin-config/lspconfig")
 require("plugin-config/snippets")
+require("plugin-config/neotest")
 
 return packer
