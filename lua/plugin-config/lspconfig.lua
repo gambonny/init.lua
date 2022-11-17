@@ -40,39 +40,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, lhs, rhs, opts)
     end
 
-    -- Displays hover information about the symbol under the cursor
-    bufmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
-
-    -- Jump to the definition
     bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-
-    -- Jump to declaration
     bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
-
-    -- Lists all the implementations for the symbol under the cursor
     bufmap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
-
-    -- Jumps to the definition of the type symbol
     bufmap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
-
-    -- Lists all the references
     bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
-
-    -- Displays a function"s signature information
     bufmap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-
-    -- Renames all references to the symbol under the cursor
-    bufmap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>")
-
-    -- Selects a code action available at the current cursor position
-    bufmap("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-    bufmap("x", "<Leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<cr>")
-
-    -- Move to the previous diagnostic
-    bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-
-    -- Move to the next diagnostic
-    bufmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
   end
 })
 
@@ -162,3 +135,30 @@ cmp.setup({
     end, { 'i', 's' }),
   },
 })
+
+local keymap = vim.keymap.set
+local saga = require('lspsaga')
+
+saga.init_lsp_saga()
+
+keymap("n", "<Leader>gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap({"n","v"}, "<Leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+keymap("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "<Leader>gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+
+keymap("n", "[E", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+keymap("n", "]E", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+keymap("t", "<A-t>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })

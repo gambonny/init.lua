@@ -77,6 +77,7 @@ local packer = require('packer').startup(function(use)
   use({ "saadparwaiz1/cmp_luasnip" })
   use({ "windwp/nvim-ts-autotag" })
   use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+  use({ "glepnir/lspsaga.nvim", branch = "main" })
 
   use({ "L3MON4D3/LuaSnip" })
   use({ "ThePrimeagen/harpoon" })

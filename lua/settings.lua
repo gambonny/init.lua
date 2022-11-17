@@ -43,7 +43,7 @@ vim.o.updatetime = 300
 vim.o.completeopt='menuone,preview,noinsert'
 vim.o.hidden=true
 
-vim.g.material_style = "dark ocean"
+vim.g.material_style = "palenight"
 vim.cmd [[
   colorscheme material
   set encoding=utf-8
