@@ -204,12 +204,12 @@ local packer = require('packer').startup(function(use)
   end
 end)
 
-require("plugin-config/material")
-require("plugin-config/telescope")
-require("plugin-config/smart-splits")
-require("plugin-config/lspconfig")
-require("plugin-config/snippets")
-require("plugin-config/neotest")
-require("plugin-config/gitsigns")
+require("plugins.configs.material")
+require("plugins.configs.telescope")
+require("plugins.configs.smart-splits")
+require("plugins.configs.lspconfig")
+require("plugins.configs.snippets")
+require("plugins.configs.neotest")
+require("plugins.configs.gitsigns")
 
 return packer
