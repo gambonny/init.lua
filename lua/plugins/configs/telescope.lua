@@ -1,16 +1,70 @@
-require('telescope').setup()
+local actions    = require('telescope.actions')
+local previewers = require('telescope.previewers')
+local builtin    = require('telescope.builtin')
+
 require('telescope').load_extension('fzf')
 
-vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tm", ":Telescope marks<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tg", ":Telescope grep_string<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>tl", ":Telescope live_grep<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tf", ":Telescope current_buffer_fuzzy_find<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tc", ":Telescope git_commits<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>td", ":Telescope git_bcommits<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>ts", ":Telescope git_status<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>th", ":Telescope git_stash<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tb", ":Telescope buffers theme=dropdown<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tj", ":Telescope jumplist theme=dropdown<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tt", ":Telescope treesitter theme=dropdown<CR>", {})
-vim.api.nvim_set_keymap("n", "<Leader>tk", "<cmd>lua require('material.functions').find_style()<CR>", {})
+local git_icons = {
+  added = "",
+  changed = "",
+  copied = ">",
+  deleted = "",
+  renamed = "➡",
+  unmerged = "‡",
+  untracked = "?",
+}
+
+require('telescope').setup {
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    layout_config     = {
+      horizontal = {
+        preview_cutoff = 120,
+      },
+      prompt_position = "top",
+    },
+    file_sorter       = require('telescope.sorters').get_fzy_sorter,
+    prompt_prefix     = '  ',
+    color_devicons    = true,
+
+    git_icons = git_icons,
+
+    sorting_strategy = "ascending",
+
+    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+
+    mappings = {
+      i = {
+        ["<C-x>"] = false,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<C-s>"] = actions.cycle_previewers_next,
+        ["<C-a>"] = actions.cycle_previewers_prev,
+        ["<C-h>"] = "which_key",
+        ["<ESC>"] = actions.close,
+      },
+      n = {
+        ["<C-s>"] = actions.cycle_previewers_next,
+        ["<C-a>"] = actions.cycle_previewers_prev,
+      }
+    }
+  },
+  extensions = {
+    fzf = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
+  }
+}

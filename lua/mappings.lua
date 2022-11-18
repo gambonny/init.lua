@@ -30,7 +30,6 @@ keymap('n', 'j', '<plug>(accelerated_jk_gj)', {})
 
 -- Harpoon
 keymap("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
-keymap("n", "<leader>tp", ":Telescope harpoon marks theme=dropdown<cr>", opts)
 keymap("n", "[h", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 keymap("n", "]h", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 
@@ -45,8 +44,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      local opts = { buffer = true }
-      vim.keymap.set(mode, lhs, rhs, opts)
+      vim.keymap.set(mode, lhs, rhs, { buffer = true })
     end
 
     bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
@@ -87,3 +85,20 @@ keymap("n", "<A-h>", "<cmd>lua require('smart-splits').move_cursor_left()<cr>", 
 keymap("n", "<A-j>", "<cmd>lua require('smart-splits').move_cursor_down()<cr>", opts)
 keymap("n", "<A-k>", "<cmd>lua require('smart-splits').move_cursor_up()<cr>", opts)
 keymap("n", "<A-l>", "<cmd>lua require('smart-splits').move_cursor_right()<cr>", opts)
+
+-- Telescope
+keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
+keymap("n", "<leader>tm", ":Telescope marks<cr>", opts)
+keymap("n", "<leader>tg", ":Telescope grep_string<cr>", opts)
+keymap("n", "<leader>tl", ":Telescope live_grep<cr>", opts)
+keymap("n", "<leader>tf", ":Telescope current_buffer_fuzzy_find<cr>", opts)
+keymap("n", "<leader>tc", ":Telescope git_commits<cr>", opts)
+keymap("n", "<leader>td", ":Telescope git_bcommits<cr>", opts)
+keymap("n", "<leader>ts", ":Telescope git_status<cr>", opts)
+keymap("n", "<leader>tb", ":Telescope buffers theme=dropdown<cr>", opts)
+keymap("n", "<leader>tj", ":Telescope jumplist theme=dropdown<cr>", opts)
+
+-- Telescope plugins
+keymap("n", "<leader>tk", "<cmd>lua require('material.functions').find_style()<cr>", opts)
+keymap("n", "<leader>tt", ":Telescope treesitter theme=dropdown<cr>", opts)
+keymap("n", "<leader>th", ":Telescope harpoon marks theme=dropdown<cr>", opts)
