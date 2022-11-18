@@ -1,6 +1,7 @@
 require "fidget".setup {}
 require("lsp-format").setup()
 
+local fn = vim.fn
 local lspconfig = require("lspconfig")
 
 local lsp_defaults = {
@@ -177,3 +178,8 @@ keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
 keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 keymap("t", "<A-t>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+
+fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
+fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
