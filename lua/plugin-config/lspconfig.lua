@@ -21,6 +21,15 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+  underline = { severity_limit = "Error" },
+  signs = true,
+  update_in_insert = false,
+})
+
+lspconfig.eslint.setup {}
 lspconfig.tsserver.setup({
   on_attach = require("lsp-format").on_attach,
 })
