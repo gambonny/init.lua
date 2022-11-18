@@ -206,7 +206,6 @@ end)
 
 require("plugins.configs.material")
 require("plugins.configs.telescope")
-require("plugins.configs.smart-splits")
 require("plugins.configs.lspconfig")
 require("plugins.configs.snippets")
 require("plugins.configs.neotest")
