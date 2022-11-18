@@ -206,7 +206,6 @@ end)
 
 require("plugin-config/material")
 require("plugin-config/telescope")
-require("plugin-config/accelerated-jk")
 require("plugin-config/smart-splits")
 require("plugin-config/harpoon")
 require("plugin-config/lspconfig")
