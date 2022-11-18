@@ -1,6 +1,4 @@
-local actions    = require('telescope.actions')
-local previewers = require('telescope.previewers')
-local builtin    = require('telescope.builtin')
+local actions = require('telescope.actions')
 
 require('telescope').load_extension('fzf')
 
@@ -24,12 +22,6 @@ require('telescope').setup {
       '--line-number',
       '--column',
       '--smart-case'
-    },
-    layout_config     = {
-      horizontal = {
-        preview_cutoff = 120,
-      },
-      prompt_position = "top",
     },
     file_sorter       = require('telescope.sorters').get_fzy_sorter,
     prompt_prefix     = '  ',
