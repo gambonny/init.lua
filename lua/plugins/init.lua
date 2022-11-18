@@ -33,11 +33,23 @@ local packer_bootstrap = ensure_packer()
 
 local packer = require('packer').startup(function(use)
   use({ "wbthomason/packer.nvim" })
+  use({ "kyazdani42/nvim-web-devicons" })
+  use({ "marko-cerovac/material.nvim" })
   use({ "lewis6991/impatient.nvim" })
+  use({ "psliwka/vim-smoothie" })
   use({ "nathom/filetype.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "rainbowhxch/accelerated-jk.nvim" })
   use({ "jdhao/better-escape.vim" })
+  use({ "farmergreg/vim-lastplace" })
+  use({ "christoomey/vim-system-copy" })
+  use({ "tpope/vim-repeat" })
+  use({
+    "b0o/incline.nvim",
+    config = function()
+      require("incline").setup()
+    end
+  })
 
   -- Treesitter
   use({
@@ -97,7 +109,7 @@ local packer = require('packer').startup(function(use)
     }
   }
 
-  use({ "L3MON4D3/LuaSnip" })
+  -- Jumps
   use({ "ThePrimeagen/harpoon" })
   use({
     "ggandor/leap.nvim",
@@ -114,7 +126,8 @@ local packer = require('packer').startup(function(use)
     end
   })
 
-  use({ "farmergreg/vim-lastplace" })
+  use({ "L3MON4D3/LuaSnip" })
+
   use({
     "terrortylor/nvim-comment",
     config = function()
@@ -134,7 +147,6 @@ local packer = require('packer').startup(function(use)
     end
   })
   use({ "mrjones2014/smart-splits.nvim" })
-  use("christoomey/vim-system-copy")
   use({
     "petertriho/nvim-scrollbar",
     config = function()
@@ -154,8 +166,6 @@ local packer = require('packer').startup(function(use)
       })
     end
   })
-  use({ "tpope/vim-repeat" })
-  use({ "psliwka/vim-smoothie" })
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -168,18 +178,11 @@ local packer = require('packer').startup(function(use)
     end
   })
 
-  use({ "kyazdani42/nvim-web-devicons" })
-  use({ "marko-cerovac/material.nvim" })
+  -- Look & feel
   use({
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup()
-    end
-  })
-  use({
-    "b0o/incline.nvim",
-    config = function()
-      require("incline").setup()
     end
   })
   use({
