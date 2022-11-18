@@ -33,3 +33,9 @@ keymap("n", "<Leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", opts
 keymap("n", "<Leader>tp", ":Telescope harpoon marks theme=dropdown<CR>", opts)
 keymap("n", "[h", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", opts)
 keymap("n", "]h", "<cmd>lua require('harpoon.ui').nav_next()<CR>", opts)
+
+-- Neotest
+keymap('n', '<Leader>t1', "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", opts)
+keymap('n', '<Leader>t2', "<cmd>lua require('neotest').run.run()<cr>", opts)
+keymap('n', '<Leader>t3', "<cmd>lua require('neotest').summary.toggle()<cr>", opts)
+keymap('n', '<Leader>t4', "<cmd>lua require('neotest').output.open()<cr>", opts)
