@@ -59,3 +59,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     bufmap("n", "<Leader>gg", "<cmd>belowright split | lua vim.lsp.buf.definition()<CR>")
   end
 })
+
+-- LSP Saga
+keymap("n", "<Leader>gh", "<cmd>Lspsaga lsp_finder<cr>", opts)
+keymap("n", "<Leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
+keymap("n", "<Leader>rn", "<cmd>Lspsaga rename<cr>", opts)
+keymap("n", "<Leader>gd", "<cmd>Lspsaga peek_definition<cr>", opts)
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<cr>", opts)
+
+keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+
+keymap("n", "<leader>o", "<cmd>LSoutlineToggle<cr>", opts)
+keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+
+keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<cr>", opts)
+keymap("t", "<A-t>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<cr>]], opts)

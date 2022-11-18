@@ -2,6 +2,7 @@ require "fidget".setup {}
 require("lsp-format").setup()
 
 local fn = vim.fn
+local saga = require('lspsaga')
 local lspconfig = require("lspconfig")
 
 local lsp_defaults = {
@@ -15,6 +16,12 @@ local lsp_defaults = {
     require 'illuminate'.on_attach(client)
   end
 }
+
+saga.init_lsp_saga()
+fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
+fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   "force",
@@ -132,35 +139,3 @@ cmp.setup({
     end, { 'i', 's' }),
   },
 })
-
-local keymap = vim.keymap.set
-local saga = require('lspsaga')
-
-saga.init_lsp_saga()
-
-keymap("n", "<Leader>gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-keymap({ "n", "v" }, "<Leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap("n", "<Leader>gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-
-keymap("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-keymap("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-
-keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-
-keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-keymap("t", "<A-t>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
-
-fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
-fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
