@@ -46,25 +46,6 @@ lspconfig.sumneko_lua.setup({
   }
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  desc = "LSP actions",
-  callback = function()
-    local bufmap = function(mode, lhs, rhs)
-      local opts = { buffer = true }
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
-
-    bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-    bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
-    bufmap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
-    bufmap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
-    bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
-    bufmap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-    bufmap("n", "<Leader>gv", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
-    bufmap("n", "<Leader>gg", "<cmd>belowright split | lua vim.lsp.buf.definition()<CR>")
-  end
-})
-
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 local cmp = require('cmp')
