@@ -27,3 +27,9 @@ api.nvim_create_autocmd("TextYankPost", {
 
 -- Accelerated jk
 keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+
+-- Harpoon
+keymap("n", "<Leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<Leader>tp", ":Telescope harpoon marks theme=dropdown<CR>", opts)
+keymap("n", "[h", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", opts)
+keymap("n", "]h", "<cmd>lua require('harpoon.ui').nav_next()<CR>", opts)
