@@ -1,9 +1,15 @@
 require "fidget".setup {}
 require("lsp-format").setup()
 
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 local fn = vim.fn
 local saga = require('lspsaga')
 local lspconfig = require("lspconfig")
+
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 local lsp_defaults = {
   flags = {
@@ -18,6 +24,7 @@ local lsp_defaults = {
 }
 
 saga.init_lsp_saga()
+
 fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
 fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
@@ -53,13 +60,6 @@ lspconfig.sumneko_lua.setup({
   }
 })
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
-local cmp = require('cmp')
-local luasnip = require('luasnip')
-
-local select_opts = { behavior = cmp.SelectBehavior.Select }
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -82,7 +82,7 @@ cmp.setup({
         nvim_lsp = 'λ',
         luasnip = '⋗',
         buffer = 'Ω',
-        path = '🖫',
+        path = '',
       }
 
       item.menu = menu_icon[entry.source.name]
