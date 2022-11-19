@@ -95,7 +95,7 @@ keymap("n", "<leader>tf", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>tc", ":Telescope git_commits<cr>", opts)
 keymap("n", "<leader>tm", ":Telescope git_bcommits<cr>", opts)
 keymap("n", "<leader>ts", ":Telescope git_status<cr>", opts)
-keymap("n", "<leader>tu", ":Telescope buffers theme=dropdown<cr>", opts)
+keymap("n", "<leader>tb", ":Telescope buffers theme=dropdown<cr>", opts)
 keymap("n", "<leader>tj", ":Telescope jumplist theme=dropdown<cr>", opts)
 
 -- Telescope plugins
