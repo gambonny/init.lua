@@ -18,5 +18,17 @@
     cV   => paste the content of system clipboard to the next line
 
 ### Opening GitHub
-    <leader>gr => Opens the project's git repository page in GitHub
-    <leader>gf => Opens the current file page in GitHub
+    <leader>gr => opens the project's git repository page in GitHub
+    <leader>gf => opens the current file page in GitHub
+
+### GitSigns
+    <leader>hs => stage hunk
+    <leader>hr => reset hunk
+    <leader>hS => stage buffer
+    <leader>hu => undo stage hunk
+    <leader>hR => reset buffer
+    <leader>hp => preview hunk
+    <leader>hb => blame line
+    <leader>ht => toggle current line blame
+    <leader>hd => diff this
+    <leader>td => toggle deleted
