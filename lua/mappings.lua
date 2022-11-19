@@ -104,5 +104,5 @@ keymap("n", "<leader>tt", ":Telescope treesitter theme=dropdown<cr>", opts)
 keymap("n", "<leader>th", ":Telescope harpoon marks theme=dropdown<cr>", opts)
 
 -- Opening GH
-keymap("n", "<leader>gr", ":OpenInGHRepo <cr>", { expr = true, noremap = true })
-keymap("n", "<leader>gf", ":OpenInGHFile <cr>", { expr = true, noremap = true })
+keymap("n", "<leader>ho", ":OpenInGHRepo <cr>", { expr = true, noremap = true })
+keymap("n", "<leader>hf", ":OpenInGHFile <cr>", { expr = true, noremap = true })

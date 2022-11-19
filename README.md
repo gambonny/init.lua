@@ -18,8 +18,8 @@
     cV   => paste the content of system clipboard to the next line
 
 ### Opening GitHub
-    <leader>gr => opens the project's git repository page in GitHub
-    <leader>gf => opens the current file page in GitHub
+    <leader>ho => opens the project's git repository page in GitHub
+    <leader>hf => opens the current file page in GitHub
 
 ### GitSigns
     <leader>hs => stage hunk
@@ -32,6 +32,7 @@
     <leader>hl => toggle current line blame
     <leader>hd => diff this
     <leader>ht => toggle deleted
+    <leader>hq => open changes in quickfix
 
 
 ### Text Objects
