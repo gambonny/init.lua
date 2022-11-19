@@ -38,5 +38,5 @@
     ih => Gitsigns select_hunk
 
 ### Navigation
-    ]c => next hunk
-    [c => previous hunk
+    ]h => next hunk
+    [h => previous hunk
