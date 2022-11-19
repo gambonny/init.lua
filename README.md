@@ -29,9 +29,9 @@
     <leader>hR => reset buffer
     <leader>hp => preview hunk
     <leader>hb => blame line
-    <leader>ht => toggle current line blame
+    <leader>hl => toggle current line blame
     <leader>hd => diff this
-    <leader>td => toggle deleted
+    <leader>ht => toggle deleted
 
 
 ### Text Objects
