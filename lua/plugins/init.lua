@@ -9,29 +9,14 @@ local ensure_packer = function()
   return false
 end
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
-local status_ok, _packer = pcall(require, "packer")
+local status_ok, _ = pcall(require, "packer")
 if not status_ok then
   return
 end
 
-_packer.init({
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
-  },
-})
-
 local packer_bootstrap = ensure_packer()
 
-local packer = require('packer').startup(function(use)
+local packer = require('packer').startup({ function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "marko-cerovac/material.nvim" })
@@ -58,9 +43,7 @@ local packer = require('packer').startup(function(use)
     config = function()
       require("nvim-treesitter.configs").setup {
         markid = { enable = true },
-        matchup = {
-          enable = true,
-        },
+        matchup = { enable = true },
         ensure_installed = { "typescript", "lua", "tsx" }
       }
     end
@@ -205,7 +188,14 @@ local packer = require('packer').startup(function(use)
   if packer_bootstrap then
     require("packer").sync()
   end
-end)
+end,
+  config = {
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end
+    }
+  } })
 
 require("plugins.configs.material")
 require("plugins.configs.telescope")

@@ -102,3 +102,7 @@ keymap("n", "<leader>tj", ":Telescope jumplist theme=dropdown<cr>", opts)
 keymap("n", "<leader>tk", "<cmd>lua require('material.functions').find_style()<cr>", opts)
 keymap("n", "<leader>tt", ":Telescope treesitter theme=dropdown<cr>", opts)
 keymap("n", "<leader>th", ":Telescope harpoon marks theme=dropdown<cr>", opts)
+
+-- Opening GH
+keymap("n", "<leader>gr", ":OpenInGHRepo <cr>", { expr = true, noremap = true })
+keymap("n", "<leader>gf", ":OpenInGHFile <cr>", { expr = true, noremap = true })
