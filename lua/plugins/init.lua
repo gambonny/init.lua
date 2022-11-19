@@ -161,7 +161,7 @@ local packer = require('packer').startup({ function(use)
     end
   })
 
-  -- Look & feel
+  -- UI
   use({
     "norcalli/nvim-colorizer.lua",
     config = function()
