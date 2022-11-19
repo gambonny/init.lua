@@ -35,4 +35,8 @@
 
 
 ### Text Objects
-     ih => Gitsigns select_hunk
+    ih => Gitsigns select_hunk
+
+### Navigation
+    ]c => next hunk
+    [c => previous hunk
