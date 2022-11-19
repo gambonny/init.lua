@@ -19,7 +19,7 @@ local packer_bootstrap = ensure_packer()
 local packer = require('packer').startup({ function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
-  use({ "marko-cerovac/material.nvim" })
+  use 'sam4llis/nvim-tundra'
   use({ "lewis6991/impatient.nvim" })
   use({ "psliwka/vim-smoothie" })
   use({ "nathom/filetype.nvim" })
@@ -155,7 +155,7 @@ local packer = require('packer').startup({ function(use)
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'auto'
+          theme = 'tundra'
         }
       }
     end
@@ -197,7 +197,7 @@ end,
     }
   } })
 
-require("plugins.configs.material")
+require("plugins.configs.tundra")
 require("plugins.configs.telescope")
 require("plugins.configs.lspconfig")
 require("plugins.configs.snippets")

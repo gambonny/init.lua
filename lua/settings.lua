@@ -43,9 +43,9 @@ vim.o.updatetime = 300
 vim.o.completeopt = 'menuone,preview,noinsert'
 vim.o.hidden = true
 
-vim.g.material_style = "palenight"
+vim.opt.background = 'dark'
 vim.cmd [[
-  colorscheme material
+  colorscheme tundra
   set encoding=utf-8
   set fileencoding=utf-8
   set noshowmode
