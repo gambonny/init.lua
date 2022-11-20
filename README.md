@@ -34,6 +34,21 @@
     <leader>ht => toggle deleted
     <leader>hq => open changes in quickfix
 
+### Telescope
+    <C-p> => find files 
+    <leader>tb => buffers
+    <leader>tm => marks
+    <leader>tg => grep string
+    <leader>tl => live grep
+    <leader>tf => fuzzy find current buffer
+    <leader>tc => git commits
+    <leader>ti => git commits current buffer
+    <leader>ts => git status
+    <leader>ta => command history
+    <leader>tj => jump list
+
+    <leader>tt => treesitter
+    <leader>th => Harpoon
 
 ### Text Objects
     ih => Gitsigns select_hunk

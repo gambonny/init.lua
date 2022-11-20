@@ -1,6 +1,5 @@
-local actions = require('telescope.actions')
-
 require('telescope').load_extension('fzf')
+local actions = require('telescope.actions')
 
 local git_icons = {
   added = "",
@@ -14,6 +13,14 @@ local git_icons = {
 
 require('telescope').setup {
   defaults = {
+    file_sorter       = require('telescope.sorters').get_fzy_sorter,
+    prompt_prefix     = '  ',
+    color_devicons    = true,
+    git_icons         = git_icons,
+    sorting_strategy  = "ascending",
+    file_previewer    = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer    = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer  = require('telescope.previewers').vim_buffer_qflist.new,
     vimgrep_arguments = {
       'rg',
       '--color=never',
@@ -23,19 +30,7 @@ require('telescope').setup {
       '--column',
       '--smart-case'
     },
-    file_sorter       = require('telescope.sorters').get_fzy_sorter,
-    prompt_prefix     = '  ',
-    color_devicons    = true,
-
-    git_icons = git_icons,
-
-    sorting_strategy = "ascending",
-
-    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
-    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
-
-    mappings = {
+    mappings          = {
       i = {
         ["<C-x>"] = false,
         ["<C-j>"] = actions.move_selection_next,
@@ -43,7 +38,6 @@ require('telescope').setup {
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-s>"] = actions.cycle_previewers_next,
         ["<C-a>"] = actions.cycle_previewers_prev,
-        ["<C-h>"] = "which_key",
         ["<ESC>"] = actions.close,
       },
       n = {

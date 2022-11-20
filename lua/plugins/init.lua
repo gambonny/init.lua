@@ -19,7 +19,6 @@ local packer_bootstrap = ensure_packer()
 local packer = require('packer').startup({ function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
-  use({ "sam4llis/nvim-tundra" })
   use({ "lewis6991/impatient.nvim" })
   use({ "psliwka/vim-smoothie" })
   use({ "nathom/filetype.nvim" })
@@ -37,6 +36,8 @@ local packer = require('packer').startup({ function(use)
   })
 
   -- Treesitter
+  use({ "David-Kunz/markid" })
+  use({ "andymass/vim-matchup" })
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -44,17 +45,15 @@ local packer = require('packer').startup({ function(use)
       require("nvim-treesitter.configs").setup {
         markid = { enable = true },
         matchup = { enable = true },
-        ensure_installed = { "typescript", "lua", "tsx" }
       }
     end
   })
-  use({ "David-Kunz/markid" })
-  use({ "andymass/vim-matchup" })
 
   -- Telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = 'make' })
   use({
     "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
     requires = { { "nvim-lua/plenary.nvim" } }
   })
 
@@ -160,7 +159,6 @@ local packer = require('packer').startup({ function(use)
       }
     end
   })
-  -- Lua
   use({
     "folke/zen-mode.nvim",
     config = function()
@@ -169,6 +167,7 @@ local packer = require('packer').startup({ function(use)
   })
 
   -- UI
+  use({ "sam4llis/nvim-tundra" })
   use({
     "norcalli/nvim-colorizer.lua",
     config = function()

@@ -93,13 +93,13 @@ keymap("n", "<leader>tg", ":Telescope grep_string<cr>", opts)
 keymap("n", "<leader>tl", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>tf", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>tc", ":Telescope git_commits<cr>", opts)
-keymap("n", "<leader>tm", ":Telescope git_bcommits<cr>", opts)
+keymap("n", "<leader>ti", ":Telescope git_bcommits<cr>", opts)
 keymap("n", "<leader>ts", ":Telescope git_status<cr>", opts)
+keymap("n", "<leader>ta", ":Telescope command_history<cr>", opts)
 keymap("n", "<leader>tb", ":Telescope buffers theme=dropdown<cr>", opts)
 keymap("n", "<leader>tj", ":Telescope jumplist theme=dropdown<cr>", opts)
 
 -- Telescope plugins
-keymap("n", "<leader>tk", "<cmd>lua require('material.functions').find_style()<cr>", opts)
 keymap("n", "<leader>tt", ":Telescope treesitter theme=dropdown<cr>", opts)
 keymap("n", "<leader>th", ":Telescope harpoon marks theme=dropdown<cr>", opts)
 
