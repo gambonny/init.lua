@@ -13,14 +13,26 @@ local git_icons = {
 
 require('telescope').setup {
   defaults = {
+    layout_strategy   = 'flex',
     file_sorter       = require('telescope.sorters').get_fzy_sorter,
-    prompt_prefix     = '  ',
+    prompt_prefix     = ' 🔍 ',
     color_devicons    = true,
     git_icons         = git_icons,
     sorting_strategy  = "ascending",
-    file_previewer    = require('telescope.previewers').vim_buffer_cat.new,
-    grep_previewer    = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer  = require('telescope.previewers').vim_buffer_qflist.new,
+    layout_config     = {
+      horizontal = {
+        preview_cutoff = 100,
+        preview_width = 0.5,
+      },
+      vertical = {
+        preview_cutoff = 0.4,
+      },
+      flex = {
+        flip_columns = 110,
+      },
+      height = 0.94,
+      width = 0.86,
+    },
     vimgrep_arguments = {
       'rg',
       '--color=never',

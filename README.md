@@ -53,6 +53,6 @@
 ### Text Objects
     ih => Gitsigns select_hunk
 
-### Navigation
+### File Navigation
     ]h => next hunk
     [h => previous hunk

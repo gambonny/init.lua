@@ -1,7 +1,7 @@
 require('nvim-tundra').setup({
   transparent_background = true,
   dim_inactive_windows = {
-    enabled = true,
+    enabled = false,
     color = nil,
   },
   plugins = {
