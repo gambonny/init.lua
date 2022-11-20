@@ -19,7 +19,7 @@ local packer_bootstrap = ensure_packer()
 local packer = require('packer').startup({ function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "kyazdani42/nvim-web-devicons" })
-  use 'sam4llis/nvim-tundra'
+  use({ "sam4llis/nvim-tundra" })
   use({ "lewis6991/impatient.nvim" })
   use({ "psliwka/vim-smoothie" })
   use({ "nathom/filetype.nvim" })
@@ -158,6 +158,13 @@ local packer = require('packer').startup({ function(use)
           theme = 'tundra'
         }
       }
+    end
+  })
+  -- Lua
+  use({
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup()
     end
   })
 
