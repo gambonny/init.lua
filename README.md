@@ -1,5 +1,3 @@
-# nvim-conf
-
 ### Shortcuts
     jj         => esc
     \d         => delete buffer
