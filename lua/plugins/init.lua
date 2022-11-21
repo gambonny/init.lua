@@ -39,29 +39,7 @@ local packer = require('packer').startup({ function(use)
   use({ "David-Kunz/markid" })
   use({ "andymass/vim-matchup" })
   use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        markid = { enable = true },
-        matchup = { enable = true },
-        autotag = { enable = true },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["it"] = "@parameter.outer",
-              ["at"] = "@parameter.inner",
-            },
-          },
-        },
-      }
-    end
-  })
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   -- Telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = 'make' })
@@ -222,6 +200,7 @@ end,
   } })
 
 require("plugins.configs.tundra")
+require("plugins.configs.treesitter")
 require("plugins.configs.telescope")
 require("plugins.configs.lspconfig")
 require("plugins.configs.snippets")

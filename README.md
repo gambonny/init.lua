@@ -8,8 +8,7 @@
     <leader>x  => save and quit
     <leader>q  => quit
     <leader>Q  => quit all
-    
-  
+
 ### System Copy
     cpiw => copy word into system clipboard
     cpi' => copy inside single quotes to system clipboard
