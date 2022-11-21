@@ -23,7 +23,10 @@ local lsp_defaults = {
   end
 }
 
-saga.init_lsp_saga()
+saga.init_lsp_saga({
+  border_style = "rounded",
+  saga_winblend = 10,
+})
 
 fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
@@ -68,6 +71,7 @@ cmp.setup({
   },
   sources = {
     { name = 'path' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lsp', keyword_length = 3 },
     { name = 'buffer', keyword_length = 3 },
     { name = 'luasnip', keyword_length = 2 },

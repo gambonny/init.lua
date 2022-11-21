@@ -45,6 +45,7 @@ local packer = require('packer').startup({ function(use)
       require("nvim-treesitter.configs").setup {
         markid = { enable = true },
         matchup = { enable = true },
+        autotag = { enable = true },
       }
     end
   })
@@ -61,24 +62,24 @@ local packer = require('packer').startup({ function(use)
   use({ "almo7aya/openingh.nvim" })
   use({ "lewis6991/gitsigns.nvim" })
 
+  -- Snippets
+  use({ "L3MON4D3/LuaSnip" })
+
   -- LSP
   use({ "neovim/nvim-lspconfig" })
+  use({ "glepnir/lspsaga.nvim", branch = "main" })
+  use({ "lukas-reineke/lsp-format.nvim" })
+
   use({ "hrsh7th/nvim-cmp" })
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "hrsh7th/cmp-buffer" })
   use({ "hrsh7th/cmp-path" })
+  use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
+  use({ "saadparwaiz1/cmp_luasnip" })
+
   use({ "RRethy/vim-illuminate" })
   use({ "j-hui/fidget.nvim" })
-  use({ "saadparwaiz1/cmp_luasnip" })
-  use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
-  use({ "glepnir/lspsaga.nvim", branch = "main" })
-  use({ "lukas-reineke/lsp-format.nvim" })
-  use({
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
-  })
+  use({ "windwp/nvim-ts-autotag" })
 
   -- Tests
   use {
@@ -107,8 +108,6 @@ local packer = require('packer').startup({ function(use)
       })
     end
   })
-
-  use({ "L3MON4D3/LuaSnip" })
 
   use({
     "terrortylor/nvim-comment",

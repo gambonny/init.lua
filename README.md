@@ -18,8 +18,8 @@
     cV   => paste the content of system clipboard to the next line
 
 ### Opening GitHub
-    <leader>ho => opens the project's git repository page in GitHub
-    <leader>hf => opens the current file page in GitHub
+    <leader>ho => open the project's git repository page in GitHub
+    <leader>hf => open the current file page in GitHub
 
 ### GitSigns
     <leader>hs => stage hunk
@@ -50,9 +50,27 @@
     <leader>tt => treesitter
     <leader>th => Harpoon
 
+### LSP
+    <leader>gd => go to definition
+    <leader>gv => open definition in vertical split
+    <leader>gx => open definition in horizontal split
+    <leader>gt => go to type definition
+    <leader>gp => peek definition
+    <leader>gi => list implementations
+    <leader>gr => list references
+    <leader>gf => open saga finder 
+    <leader>ga => open code actions
+    <leader>gr => rename
+    <leader>go => toggle outline
+    <leader>gk => hover doc
+    <A-t>      => toggle float terminal
+
 ### Text Objects
     ih => Gitsigns select_hunk
 
 ### File Navigation
     ]h => next hunk
     [h => previous hunk
+
+    ]d => next LSP diagnostic
+    [d => previous LSP diagnostic
