@@ -38,6 +38,7 @@ local packer = require('packer').startup({ function(use)
   -- Treesitter
   use({ "David-Kunz/markid" })
   use({ "andymass/vim-matchup" })
+  use({ "nvim-treesitter/nvim-treesitter-textobjects" })
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -46,6 +47,18 @@ local packer = require('packer').startup({ function(use)
         markid = { enable = true },
         matchup = { enable = true },
         autotag = { enable = true },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["it"] = "@parameter.outer",
+              ["at"] = "@parameter.inner",
+            },
+          },
+        },
       }
     end
   })

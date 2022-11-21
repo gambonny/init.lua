@@ -66,7 +66,11 @@
     <A-t>      => toggle float terminal
 
 ### Text Objects
-    ih => Gitsigns select_hunk
+    ih => hunk
+    af => outer function
+    if => inner function
+    at => outer parameter
+    it => inner parameter
 
 ### File Navigation
     ]h => next hunk
