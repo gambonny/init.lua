@@ -1,3 +1,5 @@
+<img width="1432" alt="screenshot" src="https://user-images.githubusercontent.com/88061915/203118003-a8c1623a-4021-42fb-8e63-3def9d9d6cd8.png">
+
 ### Shortcuts
     jj         => esc
     \d         => delete buffer
