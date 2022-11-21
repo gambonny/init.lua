@@ -69,6 +69,12 @@ local packer = require('packer').startup({ function(use)
   use({ "neovim/nvim-lspconfig" })
   use({ "glepnir/lspsaga.nvim", branch = "main" })
   use({ "lukas-reineke/lsp-format.nvim" })
+  use({
+    "williamboman/mason-lspconfig.nvim",
+    requires = {
+      "williamboman/mason.nvim"
+    }
+  })
 
   use({ "hrsh7th/nvim-cmp" })
   use({ "hrsh7th/cmp-nvim-lsp" })

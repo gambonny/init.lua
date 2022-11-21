@@ -1,7 +1,22 @@
-require "fidget".setup {}
-require("lsp-format").setup()
-
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+require("lsp-format").setup()
+require "fidget".setup {}
+
+require("mason").setup({
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
+    }
+  }
+})
+
+require("mason-lspconfig").setup({
+  ensure_installed = { "sumneko_lua", "tsserver", "eslint" },
+  automatic_installation = true,
+})
 
 local fn = vim.fn
 local saga = require('lspsaga')
