@@ -62,7 +62,15 @@
     <leader>gr => rename
     <leader>go => toggle outline
     <leader>gk => hover doc
-    <A-t>      => toggle float terminal
+    <A-t>      => toggle float terminal    
+    
+### Neotest Jest
+    <leader>t1 => run the current file
+    <leader>t2 => run the nearest test
+    <leader>t3 => displays test suite structure from project root
+    <leader>t4 => display tests output
+    <leader>t5 => stop the nearest test
+
 
 ### Text Objects
     ih => hunk
