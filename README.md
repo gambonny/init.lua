@@ -84,6 +84,11 @@
 #### Comments
     gcc        => comment/uncomment current line
     gc{motion} => comment/uncomment selection defined by a motion
+    
+#### Surrounding pairs
+    ys{motion}{char}        => add
+    ds{char}                => delete
+    cs{target}{replacement} => change
 
 ### Text Objects
     ih => hunk
@@ -92,7 +97,7 @@
     at => outer parameter
     it => inner parameter
 
-### File Navigation
+### Navigation
     ]h => next hunk
     [h => previous hunk
 
