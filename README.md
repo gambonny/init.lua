@@ -76,6 +76,11 @@
     <leader>ar => remove file
     <leader>ac => clear all
 
+#### Leap
+    s  => Initiate search in the forward
+    S  => Initiate search in the backward
+    gs => Initiate search in other windows
+
 ### Text Objects
     ih => hunk
     af => outer function
