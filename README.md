@@ -76,10 +76,14 @@
     <leader>ar => remove file
     <leader>ac => clear all
 
-#### Leap
+#### Leaps
     s  => Initiate search in the forward
     S  => Initiate search in the backward
     gs => Initiate search in other windows
+    
+#### Comments
+    gcc        => comment/uncomment current line
+    gc{motion} => comment/uncomment selection defined by a motion
 
 ### Text Objects
     ih => hunk
