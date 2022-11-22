@@ -9,8 +9,8 @@ require("nvim-treesitter.configs").setup {
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["it"] = "@parameter.outer",
-        ["at"] = "@parameter.inner",
+        ["at"] = "@parameter.outer",
+        ["it"] = "@parameter.inner",
       },
     },
   },
