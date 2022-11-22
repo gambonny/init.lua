@@ -23,6 +23,13 @@ local saga = require('lspsaga')
 local lspconfig = require("lspconfig")
 
 local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
 local luasnip = require('luasnip')
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 
