@@ -91,6 +91,7 @@ keymap("n", "<leader>t1", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'
 keymap("n", "<leader>t2", "<cmd>lua require('neotest').run.run()<cr>", opts)
 keymap("n", "<leader>t3", "<cmd>lua require('neotest').summary.toggle()<cr>", opts)
 keymap("n", "<leader>t4", "<cmd>lua require('neotest').output.open()<cr>", opts)
+keymap("n", "<leader>t5", "<cmd>lua require('neotest').run.stop()<cr>", opts)
 
 -- Smart Splits
 keymap("n", "<A-y>", "<cmd>lua require('smart-splits').resize_left()<cr>", opts)
