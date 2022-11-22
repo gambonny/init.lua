@@ -82,9 +82,11 @@ keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
 -- Harpoon
-keymap("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
-keymap("n", "[h", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
-keymap("n", "]h", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+keymap("n", "<leader>aa", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "<leader>ar", "<cmd>lua require('harpoon.mark').rm_file()<cr>", opts)
+keymap("n", "<leader>ac", "<cmd>lua require('harpoon.mark').clear_all()<cr>", opts)
+keymap("n", "[a", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+keymap("n", "]a", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 
 -- Neotest
 keymap("n", "<leader>t1", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", opts)
