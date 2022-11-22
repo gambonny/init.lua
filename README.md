@@ -71,6 +71,10 @@
     <leader>t4 => display tests output
     <leader>t5 => stop the nearest test
 
+### Harpoon
+    <leader>aa => add file
+    <leader>ar => remove file
+    <leader>ac => clear all
 
 ### Text Objects
     ih => hunk
@@ -85,3 +89,6 @@
 
     ]d => next LSP diagnostic
     [d => previous LSP diagnostic
+    
+    ]a => next Harpoon file
+    [a => previous Harpoon file
