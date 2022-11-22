@@ -23,8 +23,9 @@ local saga = require('lspsaga')
 local lspconfig = require("lspconfig")
 
 local cmp = require('cmp')
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
+-- insert `()` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
