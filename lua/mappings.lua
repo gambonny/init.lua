@@ -41,13 +41,14 @@ keymap("n", "<leader>tf", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>tc", ":Telescope git_commits<cr>", opts)
 keymap("n", "<leader>ti", ":Telescope git_bcommits<cr>", opts)
 keymap("n", "<leader>ts", ":Telescope git_status<cr>", opts)
-keymap("n", "<leader>ta", ":Telescope command_history<cr>", opts)
+keymap("n", "<leader>to", ":Telescope command_history<cr>", opts)
 keymap("n", "<leader>tb", ":Telescope buffers theme=dropdown<cr>", opts)
 keymap("n", "<leader>tj", ":Telescope jumplist theme=dropdown<cr>", opts)
 
 -- Telescope plugins
 keymap("n", "<leader>tt", ":Telescope treesitter theme=dropdown<cr>", opts)
 keymap("n", "<leader>th", ":Telescope harpoon marks theme=dropdown<cr>", opts)
+keymap("n", "<leader>ta", ":Telescope adjacent theme=dropdown<cr>", opts)
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
