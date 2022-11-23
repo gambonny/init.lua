@@ -1,3 +1,5 @@
+require("hlargs").setup()
+
 require("nvim-treesitter.configs").setup {
   markid = { enable = true },
   matchup = { enable = true },
