@@ -132,5 +132,8 @@
     ]a => next Harpoon file
     [a => previous Harpoon file
     
-    m] => Move to next mark
-    m[ => Move to previous mark
+    m] => move to next mark
+    m[ => move to previous mark
+    
+    ]j => jump to next buffer
+    [j => jump to previous buffer
