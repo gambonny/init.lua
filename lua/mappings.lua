@@ -113,3 +113,9 @@ keymap("n", "m_", ":MarksQFListAll<cr>", opts)
 
 -- Zen Mode
 keymap("n", "<A-z>", ":ZenMode<cr>", opts)
+
+-- Navigation
+keymap("n", "[q", ":cprevious<cr>", opts)
+keymap("n", "]q", ":cnext<cr>", opts)
+keymap("n", "[b", ":bprevious<cr>", opts)
+keymap("n", "]b", ":bnext<cr>", opts)
