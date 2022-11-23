@@ -106,5 +106,10 @@ keymap("n", "<A-j>", "<cmd>lua require('smart-splits').move_cursor_down()<cr>", 
 keymap("n", "<A-k>", "<cmd>lua require('smart-splits').move_cursor_up()<cr>", opts)
 keymap("n", "<A-l>", "<cmd>lua require('smart-splits').move_cursor_right()<cr>", opts)
 
+-- Marks
+keymap("n", "m<", ":MarksQFListBuf<cr>", opts)
+keymap("n", "m>", ":MarksQFListGlobal<cr>", opts)
+keymap("n", "m_", ":MarksQFListAll<cr>", opts)
+
 -- Zen Mode
 keymap("n", "<A-z>", ":ZenMode<cr>", opts)
