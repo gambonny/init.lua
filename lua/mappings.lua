@@ -111,5 +111,9 @@ keymap("n", "m<", ":MarksQFListBuf<cr>", opts)
 keymap("n", "m>", ":MarksQFListGlobal<cr>", opts)
 keymap("n", "m_", ":MarksQFListAll<cr>", opts)
 
+-- Buffers
+keymap("n", "[j", "<cmd>lua require('bufjump').backward()<cr>", opts)
+keymap("n", "]j", "<cmd>lua require('bufjump').forward()<cr>", opts)
+
 -- Zen Mode
 keymap("n", "<A-z>", ":ZenMode<cr>", opts)
