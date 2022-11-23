@@ -43,11 +43,12 @@
     <leader>tc => git commits
     <leader>ti => git commits current buffer
     <leader>ts => git status
-    <leader>ta => command history
+    <leader>to => command history
     <leader>tj => jump list
 
     <leader>tt => treesitter
-    <leader>th => Harpoon
+    <leader>th => harpoon
+    <leader>ta => adjacent
 
 ### LSP
     <leader>gd => go to definition
