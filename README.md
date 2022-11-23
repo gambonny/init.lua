@@ -111,6 +111,9 @@
     m<        => fill quickfix with all marks in the current buffer
     m>        => fill quickfix with all global marks in open buffers
     m_        => fill quickfix with all marks in all open buffers
+    
+#### Zen Mode
+    <A-z> => Toggle mode
 
 ### Text Objects
     ih => hunk
