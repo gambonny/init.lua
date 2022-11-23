@@ -39,6 +39,7 @@ local packer = require('packer').startup({ function(use)
   use({ "David-Kunz/markid" })
   use({ "andymass/vim-matchup" })
   use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+  use({ "m-demare/hlargs.nvim" })
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   -- Telescope
@@ -174,13 +175,6 @@ local packer = require('packer').startup({ function(use)
         show_current_context = true,
         show_current_context_start = true,
       }
-    end
-  })
-  use({
-    "m-demare/hlargs.nvim",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("hlargs").setup()
     end
   })
 
