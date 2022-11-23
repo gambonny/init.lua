@@ -138,10 +138,7 @@ local packer = require('packer').startup({ function(use)
   use({
     "chentoast/marks.nvim",
     config = function()
-      require("marks").setup({
-        next = "m]",
-        preview = "m[",
-      })
+      require("marks").setup()
     end
   })
   use({
