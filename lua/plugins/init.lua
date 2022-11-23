@@ -158,8 +158,16 @@ local packer = require('packer').startup({ function(use)
     config = function()
       require("zen-mode").setup()
     end
-  })
+  }
 
+  -- Buffers
+  use {
+    "kwkarlwang/bufjump.nvim",
+    config = function()
+      require("bufjump").setup()
+    end
+  }
+  
   -- UI
   use({ "sam4llis/nvim-tundra" })
   use({
