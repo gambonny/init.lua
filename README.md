@@ -101,6 +101,17 @@
     <A-k> => move cursor up
     <A-l> => move cursor right
 
+#### Marks
+    mx        => set mark x
+    m,        => set the next available alphabetical (lowercase) mark
+    m;        => toggle the next available mark at the current line
+    dmx       => delete mark x
+    dm-       => delete all marks on the current line
+    dm<space> => delete all marks in the current buffer
+    m<        => fill quickfix with all marks in the current buffer
+    m>        => fill quickfix with all global marks in open buffers
+    m_        => fill quickfix with all marks in all open buffers
+
 ### Text Objects
     ih => hunk
     af => outer function
@@ -117,3 +128,6 @@
     
     ]a => next Harpoon file
     [a => previous Harpoon file
+    
+    m] => Move to next mark
+    m[ => Move to previous mark
