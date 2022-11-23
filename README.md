@@ -90,6 +90,17 @@
     ds{char}                => delete
     cs{target}{replacement} => change
 
+#### Smart splits
+    <A-y> => resize left
+    <A-u> => resize down
+    <A-i> => resize up
+    <A-o> => resize right
+
+    <A-h> => move cursor left
+    <A-j> => move cursor down
+    <A-k> => move cursor up
+    <A-l> => move cursor right
+
 ### Text Objects
     ih => hunk
     af => outer function
