@@ -123,6 +123,12 @@
     it => inner parameter
 
 ### Navigation
+    ]b => next buffer
+    [b => previous buffer
+    
+    ]q => next quickfix result
+    [q => previous quickfix result
+
     ]h => next hunk
     [h => previous hunk
 
