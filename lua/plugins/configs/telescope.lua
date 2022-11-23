@@ -1,4 +1,5 @@
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('adjacent')
 local actions = require('telescope.actions')
 
 local git_icons = {
