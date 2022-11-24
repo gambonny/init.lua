@@ -60,7 +60,7 @@
     <leader>gr => list references
     <leader>gf => open saga finder 
     <leader>ga => open code actions
-    <leader>gr => rename
+    <leader>gn => rename
     <leader>go => toggle outline
     <leader>gk => hover doc
     <A-t>      => toggle float terminal    
