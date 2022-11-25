@@ -187,6 +187,7 @@ local packer = require('packer').startup({ function(use)
 
   -- UI
   use({ "sam4llis/nvim-tundra" })
+  use({ "pantharshit00/vim-prisma" })
   use({
     "norcalli/nvim-colorizer.lua",
     config = function()
