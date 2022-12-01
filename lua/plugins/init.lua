@@ -165,6 +165,12 @@ local packer = require('packer').startup({ function(use)
       require("zen-mode").setup()
     end
   })
+  use ({
+    "declancm/maximize.nvim",
+    config = function()
+      require("maximize").setup()
+    end
+  })
 
   -- Buffers
   use ({
