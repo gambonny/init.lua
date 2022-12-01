@@ -113,8 +113,10 @@
     m>        => fill quickfix with all global marks in open buffers
     m_        => fill quickfix with all marks in all open buffers
     
-#### Zen Mode
-    <A-z> => Toggle mode
+#### Panels
+    <A-z>     => toggle zen mode
+    <leader>z => toggle maximize
+    
 
 ### Text Objects
     ih => hunk
