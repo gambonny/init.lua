@@ -112,11 +112,11 @@ keymap("n", "m<", ":MarksQFListBuf<cr>", opts)
 keymap("n", "m>", ":MarksQFListGlobal<cr>", opts)
 keymap("n", "m_", ":MarksQFListAll<cr>", opts)
 
--- Zen Mode
-keymap("n", "<A-z>", ":ZenMode<cr>", opts)
-
 -- Navigation
 keymap("n", "[q", ":cprevious<cr>", opts)
 keymap("n", "]q", ":cnext<cr>", opts)
 keymap("n", "[b", ":bprevious<cr>", opts)
 keymap("n", "]b", ":bnext<cr>", opts)
+
+keymap("n", "<A-z>", ":ZenMode<cr>", opts)
+keymap("n", "<leader>o", ":Neotree toggle filesystem reveal right<cr>", opts)
