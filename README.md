@@ -116,6 +116,7 @@
 #### Panels
     <A-z>     => toggle zen mode
     <leader>z => toggle maximize
+    <leader>o => toggle neo-tree
     
 
 ### Text Objects
