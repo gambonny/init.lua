@@ -116,8 +116,9 @@
 #### Panels
     <A-z>     => toggle zen mode
     <leader>z => toggle maximize
-    <leader>o => toggle neo-tree
-    
+    <leader>of => toggle neo-tree file tree
+    <leader>ob => toggle neo-tree buffers tree
+    <leader>oh => toggle neo-tree git status tree
 
 ### Text Objects
     ih => hunk
