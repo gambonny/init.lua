@@ -119,4 +119,6 @@ keymap("n", "[b", ":bprevious<cr>", opts)
 keymap("n", "]b", ":bnext<cr>", opts)
 
 keymap("n", "<A-z>", ":ZenMode<cr>", opts)
-keymap("n", "<leader>o", ":Neotree toggle filesystem reveal right<cr>", opts)
+keymap("n", "<leader>of", ":Neotree toggle filesystem reveal right<cr>", opts)
+keymap("n", "<leader>ob", ":Neotree toggle buffers reveal float<cr>", opts)
+keymap("n", "<leader>oh", ":Neotree toggle git_status reveal float<cr>", opts)
